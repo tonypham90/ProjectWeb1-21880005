@@ -9,8 +9,8 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
     <!--FontAwsome-->
     <script
       src="https://kit.fontawesome.com/4a85880010.js"
@@ -53,7 +53,10 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <!-- Head bar -->
-          <div class="collapse navbar-collapse ms-auto mt-2 mt-lg-0" id="Menu-header">
+          <div
+            class="collapse navbar-collapse ms-auto mt-2 mt-lg-0"
+            id="Menu-header"
+          >
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
               <li class="nav-item active">
                 <a class="nav-link" href="index.html" aria-current="page"
@@ -73,7 +76,13 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  >Login</a
+                >
               </li>
             </ul>
             <form
@@ -151,35 +160,9 @@
         </div>
       </div>
     </section>
-    <section class="container">
-      <div class="row text-center py-5">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="images/icon-1.png" alt="Coffee" />
-          <h3>Coffee</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a class="readmore btn btn-link" href="#">Read more</a>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="images/icon-2.png" alt="Drinks" />
-          <h3>Drinks</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a class="readmore btn btn-link" href="#">Read more</a>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="images/icon-3.png" alt="Cakes" />
-          <h3>Cakes</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a class="readmore btn btn-link" href="#">Read more</a>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="images/icon-4.png" alt="Ice-creams" />
-          <h3>Ice-creams</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a class="readmore btn btn-link" href="#">Read more</a>
-        </div>
-      </div>
-    </section>
-<!-- end contain -->
+    <!-- Product -->
+    <section class="container"></section>
+    <!-- end contain -->
     <!-- about us -->
     <section class="container-fluid" id="aboutus">
       <div class="container">
@@ -201,7 +184,9 @@
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam,
                 voluptas aut alias obcaecati quasi perferendis repudiandae
-                magnam?<a href="about.html" class="btn btn-link readmore m-0 p-0"
+                magnam?<a
+                  href="about.html"
+                  class="btn btn-link readmore m-0 p-0"
                   >Read more</a
                 >
               </p>
@@ -288,65 +273,93 @@
         </div>
       </div>
     </section>
-<!-- footer -->
+    <!-- footer -->
     <footer class="text-center container-fluid text-white py-3">
-        <ul class="nav justify-content-center" id="menu-footer">
-            <li class="nav-item">
-                <a class="nav-link active" href="#" aria-current="page">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="gallery.html">Gallery</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</a>
-            </li>
-        </ul>
-        <p class=" text-white-50">
-            Copyright &copy; 2022 by Anh Pham - 21880005
-        </p>
+      <ul class="nav justify-content-center" id="menu-footer">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#modalLogin"
+            >Login</a
+          >
+        </li>
+      </ul>
+      <p class="text-white-50">Copyright &copy; 2022 by Anh Pham - 21880005</p>
     </footer>
-   
+
     <!-- Modal login -->
     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-    <div class="modal fade" id="modalLogin" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="post" id="formLogin">
-                        <h3 class="text-center">Login Form</h3>
-                        <div class="mb-3">
-                            <input type="text" name="username" id="username" placeholder="Username" class="form-control">
-                        </div>
-                        <div class="md-3">
-                            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-                        </div>
-                        <button type="submit" class="form-control btn my-3">Login</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      role="dialog"
+      aria-labelledby="modalTitleId"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" method="post" id="formLogin">
+              <h3 class="text-center">Login Form</h3>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  class="form-control"
+                />
+              </div>
+              <div class="md-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  class="form-control"
+                />
+              </div>
+              <button type="submit" class="form-control btn my-3">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
         </div>
+      </div>
     </div>
-    
-    
+
     <!-- Optional: Place to the bottom of scripts -->
-    <script>
-        const myModal = new bootstrap.Modal(document.getElementById('modalLogin'), options)
-    
-    </script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -359,5 +372,40 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <!-- HandlebarsJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script id="'products-template" text="text/x-handlebars-template">
+      <div class="row text-center py-5">
+        {{#each data}}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <img src="{{imagepath}}" alt="{{name}}" />
+          <h3>{{ name }}</h3>
+          <p>{{ summary }}</p>
+          <a class="readmore btn btn-link" href="#">
+            Read more
+          </a>
+        </div>
+        {{/each}}
+      </div>;
+    </script>
+    <script>
+      (async function () {
+        const response = await fetch(
+          "https://web1-api.vercel.app/api/products"
+        );
+        const data = await response.json();
+        var source = document.getElementById("products-template").innerHTML;
+        var template = Handlebars.compile(source);
+        var context = { data: data };
+        var html = template(context);
+        console.log(html);
+      })();
+    </script>
   </body>
 </html>

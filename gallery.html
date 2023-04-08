@@ -9,8 +9,8 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
     <!--FontAwsome-->
     <script
       src="https://kit.fontawesome.com/4a85880010.js"
@@ -73,7 +73,13 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  >Login</a
+                >
               </li>
             </ul>
             <form
@@ -95,66 +101,92 @@
     </header>
 
     <section class="container"><h1>Gallery</h1></section>
-    
-<!-- footer -->
+
+    <!-- footer -->
     <footer class="text-center container-fluid text-white py-3">
-        <ul class="nav justify-content-center" id="menu-footer">
-            <li class="nav-item">
-                <a class="nav-link active" href="#" aria-current="page">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="gallery.html">Gallery</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</a>
-            </li>
-        </ul>
-        <p class=" text-white-50">
-            Copyright &copy; 2022 by Anh Pham - 21880005
-        </p>
+      <ul class="nav justify-content-center" id="menu-footer">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#modalLogin"
+            >Login</a
+          >
+        </li>
+      </ul>
+      <p class="text-white-50">Copyright &copy; 2022 by Anh Pham - 21880005</p>
     </footer>
-   
+
     <!-- Modal login -->
     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-    <div class="modal fade" id="modalLogin" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="post" id="formLogin">
-                        <h3 class="text-center">Login Form</h3>
-                        <div class="mb-3">
-                            <input type="text" name="username" id="username" placeholder="Username" class="form-control">
-                        </div>
-                        <div class="md-3">
-                            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-                        </div>
-                        <button type="submit" class="form-control btn my-3">Login</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      role="dialog"
+      aria-labelledby="modalTitleId"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" method="post" id="formLogin">
+              <h3 class="text-center">Login Form</h3>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  class="form-control"
+                />
+              </div>
+              <div class="md-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  class="form-control"
+                />
+              </div>
+              <button type="submit" class="form-control btn my-3">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
         </div>
+      </div>
     </div>
-    
-    
-    <!-- Optional: Place to the bottom of scripts -->
-    <script>
-        const myModal = new bootstrap.Modal(document.getElementById('modalLogin'), options)
-    
-    </script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
