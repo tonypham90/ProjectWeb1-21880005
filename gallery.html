@@ -55,7 +55,7 @@
           <!-- Head bar -->
           <div class="collapse navbar-collapse" id="Menu-header">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="index.html" aria-current="page"
                   >Home <span class="visually-hidden">(current)</span></a
                 >
@@ -63,7 +63,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="gallery.html">Gallery</a>
               </li>
               <li class="nav-item">
@@ -99,20 +99,33 @@
         </div>
       </nav>
     </header>
+    <section id="banner-small"></section>
 
-    <section class="container"><h1>Gallery</h1></section>
+    <section class="container" id="content">
+      <h1>Gallery</h1>
+      <strong>Filter by category</strong>
+      <ul class="nav justify-content-start m-0" id="gallery-catagories">
+        
+      </ul>
+      </ul>
+
+    <!-- Show images -->
+    <div class="row py-2" id="gallery">
+      
+    </div>
+</section>
 
     <!-- footer -->
     <footer class="text-center container-fluid text-white py-3">
       <ul class="nav justify-content-center" id="menu-footer">
         <li class="nav-item">
-          <a class="nav-link active" href="#" aria-current="page">Home</a>
+          <a class="nav-link" href="#" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="gallery.html">Gallery</a>
+          <a class="nav-link active" href="gallery.html">Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="blog.html">Blogs</a>
@@ -199,5 +212,81 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Handle bar -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/21880005.js"></script>
+
+    <!-- filter data tranfer template -->
+    <script id="gallery-categories-template" type="text/x-handlebars-template">
+      <li class="nav-item">
+          <a class="nav-link disabled" href="#" aria-current="page" onclick="loadData('gallery','gallery-images-template','gallery'); disablelink(this);">Show all</a>
+      </li>
+      {{#each data}}
+      <li class="nav-item">
+          <a class="nav-link" href="#" aria-current="page" onclick="loadData('gallery/categories/{{id}}','gallery-images-template','gallery'); disablelink(this);">{{name}}</a>
+      </li>
+      {{/each}}
+    </script>
+
+    <!-- gallery data tranfer template -->
+    <script id="gallery-images-template" type="text/x-handlebars-template">
+      {{#each data}}
+      <div class="col-md-3">
+        <a href="" onclick="">
+        <img class=" img-thumbnail mb-3" src="{{imagepath}}" alt="{{name}}" >
+        </a>
+      </div>
+      {{/each}}
+
+
+    </script>
+<!-- detail -->
+    <script id="details-template" type="text/x-handlebars-template">
+      <div class="container py-5 overflow-auto">
+        {{#each data}}
+
+          <h1 class="py-3">{{name}}</h1>
+          <img
+            src="{{thumbpath}}"
+            class="float-start rounded-4 me-3"
+            alt="{{name}}"
+          />
+          {{{description}}}
+
+        {{/each}}
+      </div>
+    </script>
+
+    <!-- load data -->
+    <script>
+      loadData('gallery-categories','gallery-categories-template','gallery-catagories');
+      loadData('gallery','gallery-images-template','gallery')
+
+      function disablelink(link){
+        let links = document.querySelectorAll('#gallery-catagories a');
+        for (let i=0;i<links.length; i++){
+          links(i).classList.remove('disabled');
+        }
+        link.classList.toggle('disabled');
+      }
+
+      
+
+    </script>
+
+
+
+
+
+
+
+
   </body>
 </html>
