@@ -9,3 +9,4 @@ async function loadData(request, templateId,viewID) {
         var view = document.getElementById(viewID);
         view.innerHTML = template(context);
       }
+      

@@ -85,12 +85,19 @@ h1 {
 #banner .carousel-indicators li.active span{
     background-color: var(--web1-green);
 
+}
 
+#banner-small{
+    background-image: url(../images/bg-banner.gif);
+    padding: 5px;
 }
 /* products */
 .readmore {
     color: var(--web1-blue);
     margin-top: -1.5rem;
+}
+.web1-text-blue{
+    color: var(--web1-blue);
 }
 /* about us */
 #aboutus {
@@ -104,6 +111,8 @@ h1 {
 
 #news .date {
     background-color: var(--web1-green);
+    width: 6rem;
+    padding: 1.5rem;
 }
 
 footer {
@@ -128,4 +137,14 @@ footer {
     background-color: var(--web1-blue);
     color: white;  
 
+}
+
+/* Testimonials */
+#testimonials{
+    background-color: var(--web1-pink);
+}
+
+#testimonials .col{
+    background: url(../images/quot.png) left top no-repeat;
+    padding-left: 3rem;
 }
