@@ -280,11 +280,11 @@
       );
       loadData("gallery", "gallery-images-template", "gallery");
       function disableLink(link) {
-        let links = document.querySelectorAll('#gallery-categories a')
+        let links = document.querySelectorAll("#gallery-categories a");
         for (let i = 0; i < links.length; i++) {
-          (i |> links).classList.remove('disabled');
+          links[i].classList.remove("disabled");
         }
-        link.classList.toggle('disabled');
+        link.classList.toggle("disabled");
       }
     </script>
   </body>
