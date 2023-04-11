@@ -104,16 +104,11 @@
     <section class="container" id="content">
       <h1>Gallery</h1>
       <strong>Filter by category</strong>
-      <ul class="nav justify-content-start m-0" id="gallery-catagories">
-        
-      </ul>
-      </ul>
+      <ul class="nav" id="gallery-catagories"></ul>
 
-    <!-- Show images -->
-    <div class="row py-2" id="gallery">
-      
-    </div>
-</section>
+      <!-- Show images -->
+      <div class="row py-2" id="gallery"></div>
+    </section>
 
     <!-- footer -->
     <footer class="text-center container-fluid text-white py-3">
@@ -226,28 +221,40 @@
     <!-- filter data tranfer template -->
     <script id="gallery-categories-template" type="text/x-handlebars-template">
       <li class="nav-item">
-          <a class="nav-link disabled" href="#" aria-current="page" onclick="loadData('gallery','gallery-images-template','gallery'); disablelink(this);">Show all</a>
+        <a
+          class="nav-link ps-0 disabled"
+          href="#"
+          aria-current="page"
+          onclick="loadData('gallery','gallery-images-template','gallery'); disableLink(this)"
+        >Show all</a>
       </li>
       {{#each data}}
-      <li class="nav-item">
-          <a class="nav-link" href="#" aria-current="page" onclick="loadData('gallery/categories/{{id}}','gallery-images-template','gallery'); disablelink(this);">{{name}}</a>
-      </li>
+        <li class="nav-item">
+          <a
+            class="nav-link ps-0"
+            href="#"
+            aria-current="page"
+            onclick="loadData('gallery/categories/{{id}}','gallery-images-template','gallery'); disableLink(this)"
+          >{{name}}</a>
+        </li>
       {{/each}}
     </script>
 
     <!-- gallery data tranfer template -->
     <script id="gallery-images-template" type="text/x-handlebars-template">
       {{#each data}}
-      <div class="col-md-3">
-        <a href="" onclick="">
-        <img class=" img-thumbnail mb-3" src="{{imagepath}}" alt="{{name}}" >
-        </a>
-      </div>
+        <div class="col-md-3">
+          <a href="" onclick="">
+            <img
+              class="img-thumbnail mb-3"
+              src="{{imagepath}}"
+              alt="{{name}}"
+            />
+          </a>
+        </div>
       {{/each}}
-
-
     </script>
-<!-- detail -->
+    <!-- detail -->
     <script id="details-template" type="text/x-handlebars-template">
       <div class="container py-5 overflow-auto">
         {{#each data}}
@@ -266,27 +273,19 @@
 
     <!-- load data -->
     <script>
-      loadData('gallery-categories','gallery-categories-template','gallery-catagories');
-      loadData('gallery','gallery-images-template','gallery')
-
-      function disablelink(link){
-        let links = document.querySelectorAll('#gallery-catagories a');
-        for (let i=0;i<links.length; i++){
-          links(i).classList.remove('disabled');
+      loadData(
+        "gallery-categories",
+        "gallery-categories-template",
+        "gallery-catagories"
+      );
+      loadData("gallery", "gallery-images-template", "gallery");
+      function disableLink(link) {
+        let links = document.querySelectorAll("#gallery-catagories a");
+        for (let i = 0; i < links.length; i++) {
+          links(i).classList.remove("disabled");
         }
-        link.classList.toggle('disabled');
+        link.classList.toggle("disabled");
       }
-
-      
-
     </script>
-
-
-
-
-
-
-
-
   </body>
 </html>
