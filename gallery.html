@@ -104,7 +104,7 @@
     <section class="container" id="content">
       <h1>Gallery</h1>
       <strong>Filter by category</strong>
-      <ul class="nav" id="gallery-catagories"></ul>
+      <ul class="nav" id="gallery-categories"></ul>
 
       <!-- Show images -->
       <div class="row py-2" id="gallery"></div>
@@ -276,15 +276,15 @@
       loadData(
         "gallery-categories",
         "gallery-categories-template",
-        "gallery-catagories"
+        "gallery-categories"
       );
       loadData("gallery", "gallery-images-template", "gallery");
       function disableLink(link) {
-        let links = document.querySelectorAll("#gallery-catagories a");
+        let links = document.querySelectorAll('#gallery-categories a')
         for (let i = 0; i < links.length; i++) {
-          links(i).classList.remove("disabled");
+          (i |> links).classList.remove('disabled');
         }
-        link.classList.toggle("disabled");
+        link.classList.toggle('disabled');
       }
     </script>
   </body>
