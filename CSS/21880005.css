@@ -160,3 +160,16 @@ footer {
 #comment{
     height: 2rem;
 }
+
+
+/* contacts */
+
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+.btn-primary{
+    background-color: var(--web1-blue) !important;
+    border: none;
+}
