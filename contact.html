@@ -222,6 +222,7 @@
               </button>
             </div>
           </div>
+          <div id="responseMessage" class="text-danger text-center"></div>
         </form>
       </div>
     </section>
@@ -327,6 +328,8 @@
     <script src="js/map.js"></script>
 
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lcu3I4lAAAAAO0aM8HfebToU1ptbu1ADpvgyVDq"></script>
+
+    <!-- reCAPTCHAR function -->
     <script>
       function onSubmit(e) {
         e.preventDefault();
@@ -334,6 +337,9 @@
         let responseMessage = document.getElementById("response");
         responseMessage.className = "text-success";
         responseMessage.innerHTML = "";
+        const CAPTCHA_SITE_KEY = "6Lf3U5IlAAAAAEPQ9px2P-ExwYmgJn4N8RSsTPsD";
+        const CAPTCHA_PROJECT_ID = "web1-21880005-1681702292864";
+        const CAPTCHA_API_KEY = "6Lf3U5IlAAAAALUw9X18HIqym-0ovQNTzHbRVRep";
 
         grecaptcha.enterprise.ready(async function () {
           let token = await grecaptcha.enterprise.execute(CAPTCHA_SITE_KEY, {
@@ -367,6 +373,10 @@
             responseMessage.className = "text-danger";
           }
         });
+      }
+
+      function sendMail() {
+        document.getElementById("responseMessage").innerHTML = "OK";
       }
     </script>
   </body>
