@@ -342,11 +342,14 @@
         responseMessage.innerHTML = "";
 
         grecaptcha.enterprise.ready(async function () {
-          let token = await grecaptcha.enterprise.execute(CAPTCHA_SITE_KEY, {
-            action: "submit",
-          });
+          let token = await grecaptcha.enterprise.execute(
+            "6Lf5JJMlAAAAAH7NterQYXsGbkU1IFsxC6Uuq9-i",
+            {
+              action: "submit",
+            }
+          );
 
-          let url = `https://recaptchaenterprise.googleapis.com/v1/projects/${CAPTCHA_PROJECT_ID}/assessments?key=${CAPTCHA_API_KEY}`;
+          let url = `https://recaptchaenterprise.googleapis.com/v1/projects/${"web1-21880005-1681707877251"}/assessments?key=${"6Lf5JJMlAAAAAFOoOD8ZTAdwNMY5we0EJDWL0at8"}`;
 
           let postData = {
             event: {
