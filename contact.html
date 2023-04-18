@@ -220,34 +220,37 @@
 
     <!-- reCAPTCHAR function -->
     <script
-      src="https://www.google.com/recaptcha/enterprise.js?render=6LeozJMlAAAAACu0gefTL7Clo3T7naOXzjeRPJgv"></script>
+      src="https://www.google.com/recaptcha/enterprise.js?render=6Leki5slAAAAANs9rpuYgliJFB0AWEXgEPcxuS0I"></script>
     <script>
       function onSubmit(e) {
-        e.preventDefault();
 
         grecaptcha.enterprise.ready(function () {
-          grecaptcha.enterprise.execute('6LccXZUlAAAAAG_Yto8MUtnv0LLMtOy9QkrtSu7J', { action: 'submit' }).then(async function (token) {
-            let response = await fetch("/verify.php", {
-              method: "POST",
+          grecaptcha.enterprise.execute('6Leki5slAAAAANs9rpuYgliJFB0AWEXgEPcxuS0I', { action: 'submit' }).then(async function (token) {
+            let response = await fetch('verify.php', {
+              method: 'POST',
               headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
+                'content-Type': 'application/json',
+                'Accept': 'application/json'
               },
-              body: JSON.stringify({ "g-token": token }),
-            });
+              body: JSON.stringify({ 'g-token': token })
+            })
             if (response.status == 200) {
               sendMail();
-            } else {
-              document.getElementById(" responseMessage").innerHTML =
-                "Error: Can not verify reCAPTCHA";
+            }
+            else {
+              document.getElementById('responeMessage').innerHTML = 'Error: Can not verify RECAPTCHA';
+
+
             }
           });
+
         });
       }
 
       function sendMail() {
-        document.getElementById("responseMessage").innerHTML = "OK";
+        document.getElementById('responeMessage').innerHTML = 'OK'
       }
+
     </script>
   </body>
 
