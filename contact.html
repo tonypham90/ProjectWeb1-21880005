@@ -221,29 +221,27 @@
     <!-- reCAPTCHAR function -->
     <script
       src="https://www.google.com/recaptcha/enterprise.js?render=6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0"></script>
+
     <script>
       function onSubmit(e) {
         grecaptcha.enterprise.ready(function () {
-          grecaptcha.enterprise
-            .execute("6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0", {
-              action: "submit",
-            })
-            .then(async function (token) {
-              let response = await fetch("verify.php", {
-                method: "POST",
-                headers: {
-                  "content-Type": "application/json",
-                  "Accept": "application/json",
-                },
-                body: JSON.stringify({ "g-token": token }),
-              });
-              if (response.status == 200) {
-                sendMail();
-              } else {
-                document.getElementById("responseMessage").innerHTML =
-                  "Error: Can not verify RECAPTCHA";
-              }
+          grecaptcha.enterprise.execute('6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0', { action: 'submit' }).then(async function (token) {
+
+            let response = await fetch("verify.php", {
+              method: "POST",
+              headers: {
+                "content-Type": "application/json",
+                "Accept": "application/json",
+              },
+              body: JSON.stringify({ "g-token": token }),
             });
+            if (response.status == 200) {
+              sendMail();
+            } else {
+              document.getElementById("responseMessage").innerHTML =
+                "Error: Can not verify RECAPTCHA";
+            }
+          });
         });
       }
 
