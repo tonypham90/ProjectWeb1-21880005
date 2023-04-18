@@ -2,7 +2,7 @@
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if (isset($_POST) && isset($_POST['g-token'])) {
-    $secretKey = '6Leki5slAAAAAL2NMgLNBrt9dMCqCbiJi8vjPRX9';
+    $secretKey = '6LcnspolAAAAAP-4RIg2Feq6b66wQC2pkVaC8HS0';
     $token = $_POST['g-token'];
     $ip = $_SERVER['REMOTE_ADDR'];
 
