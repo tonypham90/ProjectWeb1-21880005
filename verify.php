@@ -16,6 +16,7 @@ if (isset($_POST) && isset($_POST['g-token'])) {
         header('HTTP/1.1 401 Unauthorized');
     }
     
+
     echo json_encode($response);
     exit();
 } 
