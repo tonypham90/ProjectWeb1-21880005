@@ -239,15 +239,15 @@
               if (response.status == 200) {
                 sendMail();
               } else {
-                document.getElementById('responeMail').innerHTML = 'Error: can not verify ReCaptcha';
-
+                document.getElementById('responseMessage').innerHTML = 'Error: can not verify ReCaptcha';
               }
             });
         });
       }
 
+
       function sendMail() {
-        document.getElementById('responseMessage') = 'OK';
+        document.getElementById('responseMessage') = 'OK -test';
       }
     </script>
   </body>
