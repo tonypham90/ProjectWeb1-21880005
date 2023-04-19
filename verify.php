@@ -19,5 +19,6 @@ if (isset($_POST) && isset($_POST['g-token'])) {
 
     echo json_encode($response);
     exit();
+    
 } 
 ?>
