@@ -1,4 +1,5 @@
 const API = 'https://web1-api.vercel.app/api';
+const AUTHENTICATE_API = 'https://web1-api.vercel.app/users'
 
 async function loadData(request, templateId, viewID) {
   const response = await fetch(API.concat("/", request));
