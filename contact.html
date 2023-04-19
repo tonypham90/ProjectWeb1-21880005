@@ -148,7 +148,7 @@
               </button>
             </div>
           </div>
-          <div id="responseMessage" class="text-danger text-center">123</div>
+          <div id="responseMessage" class="text-danger text-center"></div>
         </form>
       </div>
     </section>
@@ -216,37 +216,37 @@
     <script src="js/map.js"></script>
 
     <script
-      src="https://www.google.com/recaptcha/enterprise.js?render=6Lcu3I4lAAAAAO0aM8HfebToU1ptbu1ADpvgyVDq"></script>
-
-    <!-- reCAPTCHAR function -->
-    <script
       src="https://www.google.com/recaptcha/enterprise.js?render=6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0"></script>
-
     <script>
       function onSubmit(e) {
-        grecaptcha.enterprise.ready(function () {
-          grecaptcha.enterprise.execute('6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0', { action: 'submit' }).then(async function (token) {
+        e.preventDefault();
 
-            let response = await fetch("verify.php", {
-              method: "POST",
-              headers: {
-                "content-Type": "application/json",
-                "Accept": "application/json",
-              },
-              body: JSON.stringify({ "g-token": token }),
+        grecaptcha.enterprise.ready(function () {
+          grecaptcha.enterprise
+            .execute("6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0", {
+              action: "submit",
+            })
+            .then(async function (token) {
+              let response = await fetch("verify.php", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  " Accept": "application/json",
+                },
+                body: JSON.stringify({ 'g-token': token })
+              });
+              if (response.status == 200) {
+                sendMail();
+              } else {
+                document.getElementById('responeMail').innerHTML = 'Error: can not verify ReCaptcha';
+
+              }
             });
-            if (response.status == 200) {
-              sendMail();
-            } else {
-              document.getElementById("responseMessage").innerHTML =
-                "Error: Can not verify RECAPTCHA";
-            }
-          });
         });
       }
 
       function sendMail() {
-        document.getElementById("responseMessage").innerHTML = "OK";
+        document.getElementById('responseMessage') = 'OK';
       }
     </script>
   </body>
