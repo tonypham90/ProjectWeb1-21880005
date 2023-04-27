@@ -77,12 +77,13 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link"
+                  class="nav-link linkLogin"
                   href="#"
                   data-bs-toggle="modal"
                   data-bs-target="#modalLogin"
                   >Login</a
                 >
+                <a href="#" class="nav-link linkLogout"> Logout</a>
               </li>
             </ul>
             <form
@@ -245,12 +246,13 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link linkLogin"
             href="#"
             data-bs-toggle="modal"
             data-bs-target="#modalLogin"
             >Login</a
           >
+          <a href="#" class="nav-link linkLogout"> Logout</a>
         </li>
       </ul>
       <p class="text-white-50">Copyright &copy; 2022 by Anh Pham - 21880005</p>
@@ -282,7 +284,12 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="post" id="formLogin">
+            <form
+              action="#"
+              method="post"
+              id="formLogin"
+              onsubmit="login(event)"
+            >
               <h3 class="text-center">Login Form</h3>
               <div class="mb-3">
                 <input
@@ -291,6 +298,7 @@
                   id="username"
                   placeholder="Username"
                   class="form-control"
+                  required
                 />
               </div>
               <div class="md-3">
@@ -300,12 +308,15 @@
                   id="password"
                   placeholder="Password"
                   class="form-control"
+                  required
                 />
               </div>
               <button type="submit" class="form-control btn my-3">Login</button>
             </form>
           </div>
-          <div class="modal-footer"></div>
+          <div class="modal-footer justify-content-center">
+            <div class="text-danger" id="errorMessage"></div>
+          </div>
         </div>
       </div>
     </div>

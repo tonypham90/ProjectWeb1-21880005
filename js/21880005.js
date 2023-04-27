@@ -26,4 +26,46 @@ async function getAuthenticateToken(username, password) {
   throw new Error(result.message);
 }
 
+async function login(e){
+  e.preventDefault();
 
+  let username = document.getElementById('username').value;
+  let password = document.getElementById('password').value;
+
+  try{
+    let token = await getAuthenticateToken(username,password);
+    if (token){
+      localStorage.setItem('token', token);
+      document.getElementsByClassName('btn-close')[0].click();
+      displayControls();
+    }
+
+  }
+  catch(error){
+    document.getElementById('errorMessage').innerHTML = error;
+    displayControls(false);
+  }
+}
+
+function displayControls(isLogin = true){
+  let linkLogins = document.getElementsByClassName('linkLogin');
+  let linkLogouts = document.getElementsByClassName('linkLogout');
+  let displayLogin = 'none';
+  let displaylogout = 'block';
+  if(!isLogin){
+    displayLogin = 'block';
+    displaylogout = 'none';
+  }
+
+  for (let i=0; i<2; i++){
+    linkLogins.style.display = displayLogin;
+    linkLogouts.style.display = displaylogout;
+  }
+
+
+}
+
+async function checkLogin(){
+  let token = localStorage.getItem('token');
+  
+}
