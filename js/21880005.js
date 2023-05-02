@@ -12,7 +12,7 @@ async function loadData(request, templateId, viewID) {
 }
 
 async function getAuthenticateToken(username, password) {
-  let response = await fetch(`${AUTHENTICATE_API}/authenticate`, {
+  let response = await fetch(`${ AUTHENTICATE_API }/authenticate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ async function getAuthenticateToken(username, password) {
     body: JSON.stringify({ username, password }),
   });
   let result = await response.json();
-  if ((response.status = 200)) {
+  if ((response.status == 200)) {
     return result.token;
   }
   throw new Error(result.message);
@@ -71,7 +71,7 @@ async function checkLogin() {
 async function verifyToken() {
   let token = localStorage.getItem("token");
   if (token) {
-    let response = await fetch(`${AUTHENTICATE_API}/verify`, {
+    let response = await fetch(`${ AUTHENTICATE_API }/verify`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
