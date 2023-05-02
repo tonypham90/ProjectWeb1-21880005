@@ -85,3 +85,8 @@ async function verifyToken() {
   }
   return false;
 }
+
+function logout() {
+  localStorage.clear();
+  displayControls(false);
+}
