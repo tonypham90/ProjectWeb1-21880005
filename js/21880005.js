@@ -74,14 +74,14 @@ async function checkLogin() {
 }
 
 async function verifyToken() {
-  let token = localStorage.getItem("token");
+  let token = localStorage.getItem('token');
   if (token) {
     let response = await fetch(`${ AUTHENTICATE_API }/verify`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": "Bearer" + token,
+        "Authorization": "Bearer " + token,
       },
     });
     if (response.status == 200) {

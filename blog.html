@@ -190,7 +190,7 @@
             {{formatDate date}}.
             <a
               href="#comments"
-              onclick="loadBlogsDetails({{id}}, true)"
+              onclick="loadBlogsDetails('{{id}}', true)"
             >Comment ({{comments.length}})</a>
           </p>
 
@@ -202,7 +202,7 @@
           <p class="text-black-50">
             {{summary}}
           </p>
-          <a href="" class="btn btn-link readmore ps-0" onclick="loadBlogsDetails({{id}})">Read more</a>
+          <a href="" class="btn btn-link readmore ps-0" onclick="loadBlogsDetails('{{id}}')">Read more</a>
         </div>
       {{/each}}
 
@@ -212,12 +212,12 @@
             {{#each pages}}
               {{#if isCurrent}}
                 <li class="page-item disabled" aria-current="page">
-                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}',{{page}})">{{page}}</a>
+                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}','{{page}}')">{{page}}</a>
                 </li>
               {{/if}}
               {{#unless isCurrent}}
                 <li class="page-item">
-                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}',{{page}})">{{page}}</a>
+                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}','{{page}}')">{{page}}</a>
                 </li>
               {{/unless}}
             {{/each}}
@@ -409,7 +409,7 @@
           email: document.getElementById('email').value,
           comment: document.getElementById('comment').value,
           blogId: document.getElementById('blogId').value,
-          agree: (document.getElementById('agree').value == 1)
+          agree: (document.getElementById('agree').value == 1),
 
         }
         let responseMessage = document.getElementById('responseMessage');
@@ -420,13 +420,14 @@
             headers: {
               "Content-Type": "application/json",
               "Accept": "application/json",
-              "Authorization": "Bearer" + token,
+              "Authorization": "Bearer " + token,
             },
             body: JSON.stringify(postData)
 
           });
           let result = await response.json();
           if (response.status == 200) {
+            loadBlogsDetails(postData.blogId, true);
             responseMessage.innerHTML = result.message;
             responseMessage.className = 'text-success';
           } else {
@@ -440,6 +441,9 @@
           responseMessage.className = 'text-danger';
         }
       }
+    </script>
+    <script>
+      checkLogin();
     </script>
   </body>
 
