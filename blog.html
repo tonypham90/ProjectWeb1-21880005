@@ -190,7 +190,7 @@
             {{formatDate date}}.
             <a
               href="#comments"
-              onclick="loadBlogsDetails('{{id}}', true)"
+              onclick="loadBlogsDetails({{id}}, true)"
             >Comment ({{comments.length}})</a>
           </p>
 
@@ -202,7 +202,7 @@
           <p class="text-black-50">
             {{summary}}
           </p>
-          <a href="" class="btn btn-link readmore ps-0" onclick="loadBlogsDetails('{{id}}')">Read more</a>
+          <a href="" class="btn btn-link readmore ps-0" onclick="loadBlogsDetails({{id}})">Read more</a>
         </div>
       {{/each}}
 
@@ -212,12 +212,12 @@
             {{#each pages}}
               {{#if isCurrent}}
                 <li class="page-item disabled" aria-current="page">
-                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}','{{page}}')">{{page}}</a>
+                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}',{{page}})">{{page}}</a>
                 </li>
               {{/if}}
               {{#unless isCurrent}}
                 <li class="page-item">
-                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}','{{page}}')">{{page}}</a>
+                  <a class="page-link" href="#" onclick="loadBlogs('{{../../request}}',{{page}})">{{page}}</a>
                 </li>
               {{/unless}}
             {{/each}}
@@ -257,9 +257,10 @@
               {{{description}}}
             </p>
           </div>
-          <div class="py-3">
+          <div class="py-3" id="leave-comment">
             <h3>Leave your comments <br />Post Comment as guest</h3>
-            <form action="#" method="post" class="text-black-50">
+            <form action="#" method="post" class="text-black-50" onsubmit="addComment(event)">
+              <input type="hidden" name="blogId" id="blogId" value="{{id}}">
               <div class="row">
                 <div class="col-3">
                   <label for="name" class="form-label">Name (require)</label>
@@ -289,7 +290,7 @@
               </div>
               <div class="row">
                 <div class=" mb-3">
-                  <textarea name="message" id="message" rows="3" placeholder="Enter your message" required class=" form-control"></textarea>
+                  <textarea name="comment" id="comment" rows="3" placeholder="Enter your message" required class=" form-control"></textarea>
                 </div>
               </div>
               <div class="row">
@@ -303,7 +304,9 @@
                   <button type="submit" class="btn btn-link py-0 my-0">Submit Comment</button>
                 </div>
 
-
+<div class="text-center">
+  <div class="text-success" id="responseMessage"></div>
+</div>
             </form>
           </div>
           <a name="comments"></a>
@@ -366,6 +369,7 @@
           "details-blog-template",
           "blogs"
         );
+        checkLogin();
         if (gotoComments) {
           window.location.href = "#comments";
         }
@@ -394,6 +398,47 @@
           img.src = imagepath;
         }
         img.nextElementSibling.classList.toggle("web1-text-blue");
+      }
+
+      async function addComment(e) {
+        e.preventDefault();
+
+        let token = localStorage.getItem('token');
+        let postData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          comment: document.getElementById('comment').value,
+          blogId: document.getElementById('blogId').value,
+          agree: (document.getElementById('agree').value == 1)
+
+        }
+        let responseMessage = document.getElementById('responseMessage');
+
+        try {
+          let response = await fetch(`${ AUTHENTICATE_API }/comment`, {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+              "Authorization": "Bearer" + token,
+            },
+            body: JSON.stringify(postData)
+
+          });
+          let result = await response.json();
+          if (response.status == 200) {
+            responseMessage.innerHTML = result.message;
+            responseMessage.className = 'text-success';
+          } else {
+
+            throw new Error(result.message);
+          }
+
+        }
+        catch (error) {
+          responseMessage.innerHTML = result.message;
+          responseMessage.className = 'text-danger';
+        }
       }
     </script>
   </body>
