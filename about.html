@@ -265,6 +265,19 @@
       loadData("team", "ourteam-template", "our-team");
       loadData("testimonials", "testimonials-template", "testimonials");
     </script>
+    <script>
+      checkLogin();
+      loadData("products", "products-tepmlate", "products");
+      loadData("news", "news-template", "news");
+      function setActiveImagepath(img, imagepath, isActive = true) {
+        if (isActive) {
+          img.src = imagepath.replace(".", "-active.");
+        } else {
+          img.src = imagepath;
+        }
+        img.nextElementSibling.classList.toggle("web1-text-blue");
+      }
+    </script>
   </body>
 
 </html>
