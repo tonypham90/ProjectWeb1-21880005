@@ -56,7 +56,7 @@
                 <a href="#" class="nav-link linkLogout" onclick="logout()" style="display: none;"> Logout</a>
               </li>
             </ul>
-            <form class="d-flex my-2 my-lg-0 border rounded-pill" id="formsearch" method="get" action="search.html">
+            <form class="d-flex my-2 my-lg-0 border rounded-pill" id="formsearch" method="GET" action="search.html">
               <input class="form-control ms-3 border-0" type="text" placeholder="Search" name="keyword" id="keyword" />
               <button class="btn my-2 my-sm-0 border-0" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -235,8 +235,8 @@
             <p class="text-black-50">{{summary}}</p>
             <a
               class="readmore btn btn-link"
-              href="#"
-              onclick="loadData('products/{{id}}','details-template','content')"
+              href="?request=products/{{id}}"
+              
             >
               Read more
             </a>
@@ -256,9 +256,8 @@
                 <h3>{{date}}</h3>
               </div>
               <a
-                href="#"
+                href="?request=news/{{id}}"
                 class="btn btn-link readmore m-1 ps-1"
-                onclick="loadData('news/{{id}}','details-template','content')"
               >Read more</a>
             </div>
             <div>
@@ -279,9 +278,20 @@
       {{/each}}
     </script>
     <script>
-      checkLogin();
-      loadData("products", "products-tepmlate", "products");
-      loadData("news", "news-template", "news");
+      if (location.search) {
+        let searchParams = new URLSearchParams(location.search);
+        let request = searchParams.get('request');
+        if (request) {
+          loadData(request, 'details-template', 'content');
+
+        }
+      }
+      else {
+        checkLogin();
+        loadData("products", "products-tepmlate", "products");
+        loadData("news", "news-template", "news");
+      }
+
       function setActiveImagepath(img, imagepath, isActive = true) {
         if (isActive) {
           img.src = imagepath.replace(".", "-active.");

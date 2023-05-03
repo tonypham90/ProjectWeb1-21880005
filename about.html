@@ -56,8 +56,8 @@
                 <a href="#" class="nav-link linkLogout" onclick="logout()" style="display: none;"> Logout</a>
               </li>
             </ul>
-            <form class="d-flex my-2 my-lg-0 border rounded-pill" id="formsearch">
-              <input class="form-control ms-3 border-0" type="text" placeholder="Search" />
+            <form class="d-flex my-2 my-lg-0 border rounded-pill" id="formsearch" method="GET" action="search.html">
+              <input class="form-control ms-3 border-0" type="text" placeholder="Search" name="keyword" id="keyword" />
               <button class="btn my-2 my-sm-0 border-0" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
@@ -67,7 +67,8 @@
       </nav>
     </header>
     <section id="banner-small"></section>
-    <div id="content">
+    <div id="content"></div>
+    <div id="main">
       <section class="container py-5">
         <div class="row">
           <div class="col-md-8 col-sm-12" id="about-us"></div>
@@ -171,9 +172,9 @@
             {{{summary}}}
           </p>
           <a
-            href="#"
+            href="#aboutus/{{id}}"
             class="btn btn-link readmore"
-            onclick="loadData('aboutus/{{id}}','details-template','content')"
+            onclick="loadDetails('aboutus/{{id}}','details-template','content')"
           >readmore</a>
         </div>
       {{/each}}
@@ -186,8 +187,8 @@
         <div class="clearfix mb-3">
           <a
             class="text-decoration-none"
-            href="#"
-            onclick="loadData('visions/{{id}}','details-template','content')"
+            href="#visions/{{id}}"
+            onclick="loadDetails('visions/{{id}}','details-template','content')"
           >
             <img
               src="{{thumbpath}}"
@@ -213,8 +214,8 @@
           <div class="col">
             <a
               class="text-decoration-none"
-              href="#"
-              onclick="loadData('team/{{id}}','details-template','content')"
+              href="#team/{{id}}"
+              onclick="loadDetails('team/{{id}}','details-template','content')"
             >
               <img
                 src="{{thumbpath}}"
@@ -265,14 +266,47 @@
     </script>
 
     <script>
-      loadData("aboutus", "about-us-template", "about-us");
-      loadData("visions", "visions-template", "visions");
-      loadData("team", "ourteam-template", "our-team");
-      loadData("testimonials", "testimonials-template", "testimonials");
-    </script>
-    <script>
       checkLogin();
+      if (location.hash = '' || location.hash == '#') {
+        loadPage();
+      }
+      else {
+        console.log(location.hash);
+        loadDetails(location.hash.substr(1), 'details-template', 'content');
+      }
+
+
+      function loadPage() {
+        document.getElementById('main').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        loadData("aboutus", "about-us-template", "about-us");
+        loadData("visions", "visions-template", "visions");
+        loadData("team", "ourteam-template", "our-team");
+        loadData("testimonials", "testimonials-template", "testimonials");
+        history.replaceState({ loadPage: 1 }, null, location.href);
+      }
+      async function loadDetails(request, templateId, viewId) {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        await loadData(request, templateId, viewId);
+        history.replaceState({ request, templateId, viewId }, null, localStorage.href);
+      }
     </script>
+
+    <script>
+
+
+      window.onpopstate = (event) => {
+        let state = event.state;
+        if (state && state.loadPage) {
+          loadPage();
+        }
+        else if (state && state.request) {
+          loadDetails(state.request, state.templateId, state.viewId);
+        }
+      }
+    </script>
+
   </body>
 
 </html>
