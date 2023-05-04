@@ -267,11 +267,12 @@
 
     <script>
       checkLogin();
-      if (location.hash = '' || location.hash == '#') {
+
+      if (location.hash == '' || location.hash == '#') {
         loadPage();
       }
       else {
-        console.log(location.hash);
+
         loadDetails(location.hash.substr(1), 'details-template', 'content');
       }
 
@@ -289,12 +290,8 @@
         document.getElementById('main').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         await loadData(request, templateId, viewId);
-        history.replaceState({ request, templateId, viewId }, null, localStorage.href);
+        history.replaceState({ request, templateId, viewId }, null, location.href);
       }
-    </script>
-
-    <script>
-
 
       window.onpopstate = (event) => {
         let state = event.state;
@@ -305,6 +302,12 @@
           loadDetails(state.request, state.templateId, state.viewId);
         }
       }
+    </script>
+
+    <script>
+
+
+
     </script>
 
   </body>
