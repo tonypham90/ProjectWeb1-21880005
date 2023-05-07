@@ -1,0 +1,96 @@
+<h1>Blog</h1>
+      <div class="container py-5 overflow-auto">
+        {{#each data}}
+
+          <div class="clearfix py-3">
+            <!-- name -->
+            <h3>{{name}}</h3>
+            <!-- detail update -->
+            <p class="text-black-50">
+              by
+              {{author}}
+              in
+              <a href="#category/{{categoryId}}" onclick="loadBlogsPage('blogs/categories/{{categoryId}}')">{{category.name}}</a>
+              on
+              {{formatDate date}}.
+              <a href="#Comment" onclick="loadDetailsBlog({{id}}, true)">Comment ({{comments.length}})</a>
+            </p>
+
+            <img
+              src="{{imagepath}}"
+              class="img-thumbnail rounded-4 float-start me-3 my-1"
+              alt="{{name}}"
+            />
+            <p class="text-black-50">
+              {{{description}}}
+            </p>
+          </div>
+          <div class="py-3" id="leave-comment">
+            <h3>Leave your comments <br />Post Comment as guest</h3>
+            <form action="#" method="post" class="text-black-50" onsubmit="addComment(event)">
+              <input type="hidden" name="blogId" id="blogId" value="{{id}}">
+              <div class="row">
+                <div class="col-3">
+                  <label for="name" class="form-label">Name (require)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    aria-describedby="helpId"
+                    placeholder="FullName"
+                    required
+                  />
+                  <small id="helpId" class="form-text text-muted">Your name</small>
+                </div>
+                <div class="col-5">
+                  <label for="" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    aria-describedby="emailHelpId"
+                    placeholder="abc@mail.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class=" mb-3">
+                  <textarea name="comment" id="comment" rows="3" placeholder="Enter your message" required class=" form-control"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="agree" value="1" required>
+                    <label class="form-check-label" for="agree">Agree to terms and conditions</label>
+                  </div>
+                </div>
+                <div class="col text-end">
+                  <button type="submit" class="btn btn-link py-0 my-0">Submit Comment</button>
+                </div>
+
+              <div class="text-center">
+                <div class="text-success" id="responseMessage"></div>
+              </div>
+            </form>
+          </div>
+          <a name="comments"></a>
+         <div class="p-2 text-white-50 bg-dark">Comment ({{comments.length}})</div>
+          <div class="py-3">
+            {{#each comments}}
+
+              <p class="text-black-50 py-3">
+                by
+                {{name}}
+                on
+                {{formatDate date}}.
+              </p>
+              <p class="text-black-50">{{summary}}</p>
+              <hr/>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>

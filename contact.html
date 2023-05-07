@@ -229,8 +229,8 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/21880005.js"></script>
+    <script src="js/map.min.js"></script>
+    <script src="js/21880005.min.js"></script>
 
     <script
       src="https://www.google.com/recaptcha/enterprise.js?render=6LcnspolAAAAADjRLaWFc2XwwE4ottN4Sd2fHFt0"></script>
@@ -311,8 +311,7 @@
     </script>
     <script>
       checkLogin();
-      loadData("products", "products-tepmlate", "products");
-      loadData("news", "news-template", "news");
+
       function setActiveImagepath(img, imagepath, isActive = true) {
         if (isActive) {
           img.src = imagepath.replace(".", "-active.");

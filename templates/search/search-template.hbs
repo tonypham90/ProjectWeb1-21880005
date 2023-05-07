@@ -1,0 +1,13 @@
+{{#each data}}
+  <div class="py-3">
+    <a
+      href="#{{type}}/{{id}}"
+      class="text-decoration-none"
+      onclick="loadDetails('{{type}}/{{id}}','details-template','content')"
+    >
+      <h1 class="text-black">{{name}}</h1>
+    </a>
+    <div class="text-black-50"> {{{summary}}} </div>
+  </div>
+
+{{/each}}

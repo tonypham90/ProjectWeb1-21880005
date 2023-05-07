@@ -172,7 +172,7 @@
           <a href="#" class="nav-link linkLogout" onclick="logout()" style="display: none;"> Logout</a>
         </li>
       </ul>
-      <p class="text-white-50">Copyright &copy; 2022 by Anh Pham - 21880005</p>
+      <p class="text-white-50">Copyright &copy; 2023 by Anh Pham - 21880005</p>
     </footer>
 
     <!-- Modal login -->
@@ -217,66 +217,14 @@
 
     <!-- Handle bar -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
-      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.min.js"
+      integrity="sha512-1JsLHOJ3aKKxY96SA64yDTGQXo46wjivsGj6LiZGQaz0V6cGpGjfFOm1fnH9WkNwf8FFaIU8jVrvAjSESKESww=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Template for products -->
-    <script id="products-tepmlate" type="text/x-handlebars-template">
-      <div class="row text-center py-5">
-        {{#each data}}
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <img
-              src="{{imagepath}}"
-              alt="{{name}}"
-              onmouseover="setActiveImagepath(this,'{{imagepath}}',true)"
-              onmouseout="setActiveImagepath(this,'{{imagepath}}',false)"
-            />
-            <h3>{{name}}</h3>
-            <p class="text-black-50">{{summary}}</p>
-            <a
-              class="readmore btn btn-link"
-              href="?request=products/{{id}}"
-              
-            >
-              Read more
-            </a>
-          </div>
-        {{/each}}
-      </div>;
-    </script>
-    <script src="js/21880005.js"></script>
+    <script src="js/index.templates.min.js"></script>
+    <script src="js/21880005.min.js"></script>
     <!-- Template handlebars for news -->
-    <script id="news-template" type="text/x-handlebars-template">
-      <h1 class="text-black-50">News</h1>
-      <div class="row py-3">
-        {{#each data}}
-          <div class="col">
-            <div class="float-start me-3">
-              <div class="date text-white text-center rounded-4 py-3">
-                <h3>{{date}}</h3>
-              </div>
-              <a
-                href="?request=news/{{id}}"
-                class="btn btn-link readmore m-1 ps-1"
-              >Read more</a>
-            </div>
-            <div>
-              <h3>{{name}}</h3>
-              <p class="text-black-50">{{summary}}</p>
-            </div>
-          </div>
-        {{/each}}
-      </div>
-    </script>
-    <script id="details-template" type="text/x-handlebars-template">
-      <section class="container-fluid" id="banner-small"></section>
-      {{#each data}}
-        <section class="container py-5">
-          <h1 class=""> {{name}} </h1>
-          <div> {{{description}}} </div>
-        </section>
-      {{/each}}
-    </script>
+
     <script>
       if (location.search) {
         let searchParams = new URLSearchParams(location.search);

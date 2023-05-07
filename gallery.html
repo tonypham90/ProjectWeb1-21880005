@@ -68,14 +68,19 @@
     </header>
     <section id="banner-small"></section>
 
-    <section class="container py-5 " id="content">
-      <h1>Gallery</h1>
-      <strong>Filter by category</strong>
-      <ul class="nav" id="gallery-categories"></ul>
+    <div>
+      <section id="content"></section>
+      <section class="container py-5 " id="main">
+        <h1>Gallery</h1>
+        <strong>Filter by category</strong>
+        <ul class="nav" id="gallery-categories"></ul>
 
-      <!-- Show images -->
-      <div class="row py-2" id="gallery"></div>
-    </section>
+        <!-- Show images -->
+        <div class="row py-2" id="gallery"></div>
+      </section>
+    </div>
+
+
 
     <!-- footer -->
     <footer class="text-center container-fluid text-white py-3">
@@ -144,68 +149,20 @@
 
     <!-- Handle bar -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
-      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="js/21880005.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.min.js"
+      integrity="sha512-1JsLHOJ3aKKxY96SA64yDTGQXo46wjivsGj6LiZGQaz0V6cGpGjfFOm1fnH9WkNwf8FFaIU8jVrvAjSESKESww=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/gallery.templates.js"></script>
+
     <!-- filter data tranfer template -->
-    <script id="gallery-categories-template" type="text/x-handlebars-template">
-      <li class="nav-item">
-        <a
-          class="nav-link ps-0 disabled"
-          href="#"
-          aria-current="page"
-          onclick="loadData('gallery','gallery-images-template','gallery'); disableLink(this)"
-        >Show all</a>
-      </li>
-      {{#each data}}
-        <li class="nav-item">
-          <a
-            class="nav-link ps-0"
-            href="#"
-            aria-current="page"
-            onclick="loadData('gallery/categories/{{id}}','gallery-images-template','gallery'); disableLink(this)"
-          >{{name}}</a>
-        </li>
-      {{/each}}
-    </script>
 
-    <!-- gallery data tranfer template -->
-    <script id="gallery-images-template" type="text/x-handlebars-template">
-    {{#each data}}
-      <div class="col-md-3">
-        <a href="" onclick="">
-          <img class="img-thumbnail mb-3" src="{{imagepath}}" alt="{{name}}" />
-        </a>
-      </div>
-    {{/each}}
-    </script>
-    <!-- detail -->
-    <script id="details-template" type="text/x-handlebars-template">
-      <div class="container py-5 overflow-auto">
-        {{#each data}}
-
-          <h1 class="py-3">{{name}}</h1>
-          <img
-            src="{{thumbpath}}"
-            class="float-start rounded-4 me-3"
-            alt="{{name}}"
-          />
-          {{{description}}}
-
-        {{/each}}
-      </div>
-    </script>
 
     <!-- load data -->
     <script>
-      loadData(
-        "gallery-categories",
-        "gallery-categories-template",
-        "gallery-categories"
-      );
-      loadData("gallery", "gallery-images-template", "gallery");
+
       function disableLink(link) {
         let links = document.querySelectorAll("#gallery-categories a");
         for (let i = 0; i < links.length; i++) {
@@ -216,6 +173,50 @@
     </script>
     <script>
       checkLogin();
+
+      if (location.hash == '' || location.hash == '#') {
+        loadPage();
+      }
+      else {
+
+        loadDetails(location.hash.substr(1), 'details-template', 'content');
+      }
+
+
+      function loadPage() {
+        document.getElementById('main').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        loadData(
+          "gallery-categories",
+          "gallery-categories-template",
+          "gallery-categories"
+        );
+        loadData('gallery', "gallery-images-template", "gallery");
+        history.replaceState({ loadPage: 1 }, null, location.href);
+      }
+      async function loadPagei(request = 'gallery') {
+        document.getElementById('main').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        await loadData(request, "gallery-images-template", "gallery");
+        history.replaceState({ loadPage: 1 }, null, location.href);
+      }
+
+      async function loadDetails(request, templateId, viewId) {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        await loadData(request, templateId, viewId);
+        history.replaceState({ request, templateId, viewId }, null, location.href);
+      }
+
+      window.onpopstate = (event) => {
+        let state = event.state;
+        if (state && state.loadPage) {
+          loadPage();
+        }
+        else if (state && state.request) {
+          loadDetails(state.request, state.templateId, state.viewId);
+        }
+      }
     </script>
   </body>
 

@@ -1,0 +1,18 @@
+<li class="nav-item">
+  <a
+    class="nav-link ps-0 disabled"
+    href="#"
+    aria-current="page"
+    onclick="loadPagei('gallery','gallery-images-template','gallery'); disableLink(this)"
+  >Show all</a>
+</li>
+{{#each data}}
+  <li class="nav-item">
+    <a
+      class="nav-link ps-0"
+      href="#"
+      aria-current="page"
+      onclick="loadPagei('gallery/categories/{{id}}','gallery-images-template','gallery'); disableLink(this)"
+    >{{name}}</a>
+  </li>
+{{/each}}
