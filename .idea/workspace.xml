@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e22e5717-03ab-400a-b78f-bfb310881c7d" name="Changes" comment="still no solution">
-      <change afterPath="$PROJECT_DIR$/js/about.templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/blogs.templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/gallery.templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/index.templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/search.templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/about-us-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/details-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/ourteam-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/testimonials-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/visions-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blogs/blogs-categories-template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blogs/blogs-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blogs/details-blog-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/gallery/details-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/gallery/gallery-categories-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/gallery/gallery-images-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index/details-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index/news-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index/products-tepmlate.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/details-template.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/search-template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/21880005.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/21880005.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
-    </list>
+    <list default="true" id="e22e5717-03ab-400a-b78f-bfb310881c7d" name="Changes" comment="still no solution" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,21 +24,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="gallery.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ProjectWeb1-21880005/gallery.html" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -89,6 +60,7 @@
       <workItem from="1681212262245" duration="1106000" />
       <workItem from="1681213375451" duration="36000" />
       <workItem from="1683443364919" duration="53000" />
+      <workItem from="1683722980026" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="still no solution">
       <created>1681213393705</created>
